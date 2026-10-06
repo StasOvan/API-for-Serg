@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>API — документация и примеры</title>
+<style>
+    * { box-sizing: border-box; }
+
+    body {
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 24px 20px 60px;
+        color: #1f2328;
+        background: #ffffff;
+        line-height: 1.55;
+    }
+
+    h1 {
+        font-size: 28px;
+        margin: 0 0 8px;
+        border-bottom: 2px solid #e5e7eb;
+        padding-bottom: 12px;
+    }
+
+    .lead {
+        color: #57606a;
+        margin: 0 0 32px;
+    }
+
+    h2 {
+        font-size: 20px;
+        margin: 36px 0 4px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        color: #0969da;
+    }
+
+    .desc {
+        color: #57606a;
+        margin: 0 0 14px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 0 14px;
+        font-size: 14px;
+    }
+
+    th, td {
+        text-align: left;
+        padding: 8px 10px;
+        border: 1px solid #d0d7de;
+        vertical-align: top;
+    }
+
+    th {
+        background: #f6f8fa;
+        font-weight: 600;
+    }
+
+    code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 13px;
+        background: #f6f8fa;
+        padding: 2px 5px;
+        border-radius: 4px;
+    }
+
+    .result-block {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .result {
+        font-size: 13px;
+        background: #f6f8fa;
+        border: 1px solid #d0d7de;
+        border-radius: 6px;
+        padding: 10px 12px;
+        min-height: 20px;
+        white-space: pre-wrap;
+        word-break: break-all;
+        color: #1f2328;
+        min-width: 7rem;
+    }
+
+    .result.ok    { border-color: #2da44e; background: #f0fff4; }
+    .result.error { border-color: #cf222e; background: #fff5f5; color: #cf222e; }
+
+    .btn {
+        font: inherit;
+        font-size: 13px;
+        padding: 5px 12px;
+        border: 1px solid #d0d7de;
+        background: #f6f8fa;
+        border-radius: 6px;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+    .btn:hover  { background: #eaeef2; }
+    .btn:active { background: #dfe3e7; }
+
+    .row-params td:first-child {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 13px;
+        white-space: nowrap;
+    }
+
+    .footnote {
+        margin-top: 40px;
+        padding-top: 16px;
+        border-top: 1px solid #e5e7eb;
+        font-size: 13px;
+        color: #57606a;
+    }
+
+    .footnote code { font-size: 12px; }
+</style>
+</head>
+<body>
+
+<h1>API генератор случайных значений name, city, phone, email</h1>
+<p class="lead">
+    Все эндпоинты возвращают чистый текст (<code>Content-Type: text/plain; charset=utf-8</code>) и не требуют авторизации.
+    <br>
+    Параметры "<strong>(по умолчанию)</strong>" можно не указывать.
+</p>
+
+<!-- ================= random-name ================= -->
+
+<h2>GET /API/V1/GET/random-name</h2>
+<p class="desc">возвращает случайное русское имя</p>
+
+<table>
+<thead>
+<tr><th style="width:45%">Параметры</th><th>Описание</th><th style="width:120px">Результат</th></tr>
+</thead>
+<tbody>
+<tr class="row-params">
+    <td>(без параметров)</td>
+    <td>имя с большой буквы, кириллицей</td>
+    <td><button class="btn" data-url="/API/V1/GET/random-name">Выполнить</button></td>
+</tr>
+<tr class="row-params">
+    <td>?capitalize=true</td>
+    <td>имя с большой буквы <strong>(по умолчанию)</strong></td>
+    <td><button class="btn" data-url="/API/V1/GET/random-name?capitalize=true">Выполнить</button></td>
+</tr>
+<tr class="row-params">
+    <td>?capitalize=false</td>
+    <td>имя с маленькой буквы</td>
+    <td><button class="btn" data-url="/API/V1/GET/random-name?capitalize=false">Выполнить</button></td>
+</tr>
+<tr class="row-params">
+    <td>?transliter=true</td>
+    <td>транслитерация имени латиницей</td>
+    <td><button class="btn" data-url="/API/V1/GET/random-name?transliter=true">Выполнить</button></td>
+</tr>
+<tr class="row-params">
+    <td>?transliter=false</td>
+    <td>без транслитерации <strong>(по умолчанию)</strong></td>
+    <td><button class="btn" data-url="/API/V1/GET/random-name?transliter=false">Выполнить</button></td>
+</tr>
+<tr class="row-params">
+    <td>?capitalize=false&amp;transliter=true</td>
+    <td>имя латиницей с маленькой буквы</td>
+    <td><button class="btn" data-url="/API/V1/GET/random-name?capitalize=false&amp;transliter=true">Выполнить</button></td>
+</tr>
+<tr class="row-params">
+    <td>?capitalize=true&amp;transliter=true</td>
+    <td>имя латиницей с большой буквы</td>
+    <td><button class="btn" data-url="/API/V1/GET/random-name?capitalize=true&amp;transliter=true">Выполнить</button></td>
+</tr>
+</tbody>
+</table>
+
+<div class="result-block">
+<span>Результат запроса:</span>
+<div class="result" id="result-random-name">пока пусто ..</div>
+</div>
+
+
+<!-- ================= random-city ================= -->
+
+<h2>GET /API/V1/GET/random-city</h2>
+<p class="desc">возвращает случайный российский город</p>
+
+<table>
+<thead>
+<tr><th style="width:45%">Параметры</th><th>Описание</th><th style="width:120px">Результат</th></tr>
+</thead>
+<tbody>
+<tr class="row-params">
+    <td>(без параметров)</td>
+    <td>город с большой буквы, кириллицей</td>
+    <td><button class="btn" data-url="/API/V1/GET/random-city">Выполнить</button></td>
+</tr>
+<tr class="row-params">
+    <td>?capitalize=true</td>
+    <td>город с большой буквы <strong>(по умолчанию)</strong></td>
+    <td><button class="btn" data-url="/API/V1/GET/random-city?capitalize=true">Выполнить</button></td>
+</tr>
+<tr class="row-params">
+    <td>?capitalize=false</td>
+    <td>город с маленькой буквы</td>
+    <td><button class="btn" data-url="/API/V1/GET/random-city?capitalize=false">Выполнить</button></td>
+</tr>
+<tr class="row-params">
+    <td>?transliter=true</td>
+    <td>транслитерация названия латиницей</td>
+    <td><button class="btn" data-url="/API/V1/GET/random-city?transliter=true">Выполнить</button></td>
+</tr>
+<tr class="row-params">
+    <td>?transliter=false</td>
+    <td>без транслитерации <strong>(по умолчанию)</strong></td>
+    <td><button class="btn" data-url="/API/V1/GET/random-city?transliter=false">Выполнить</button></td>
+</tr>
+<tr class="row-params">
+    <td>?capitalize=false&amp;transliter=true</td>
+    <td>город латиницей с маленькой буквы</td>
+    <td><button class="btn" data-url="/API/V1/GET/random-city?capitalize=false&amp;transliter=true">Выполнить</button></td>
+</tr>
+<tr class="row-params">
+    <td>?capitalize=true&amp;transliter=true</td>
+    <td>город латиницей с большой буквы</td>
+    <td><button class="btn" data-url="/API/V1/GET/random-city?capitalize=true&amp;transliter=true">Выполнить</button></td>
+</tr>
+</tbody>
+</table>
+
+<div class="result-block">
+<span>Результат запроса:</span>
+<div class="result" id="result-random-city">пока пусто ..</div>
+</div>
+
+
+<!-- ================= random-phone ================= -->
+
+<h2>GET /API/V1/GET/random-phone</h2>
+<p class="desc">возвращает случайный мобильный номер РФ в формате <code>+7 (9XX) XXX-XX-XX</code></p>
+
+<table>
+<thead>
+<tr><th style="width:45%">Параметры</th><th>Описание</th><th style="width:120px">Результат</th></tr>
+</thead>
+<tbody>
+<tr class="row-params">
+    <td>(без параметров)</td>
+    <td>форматированный номер</td>
+    <td><button class="btn" data-url="/API/V1/GET/random-phone">Выполнить</button></td>
+</tr>
+<tr class="row-params">
+    <td>?raw=false</td>
+    <td>форматированный номер <strong>(по умолчанию)</strong></td>
+    <td><button class="btn" data-url="/API/V1/GET/random-phone?raw=false">Выполнить</button></td>
+</tr>
+<tr class="row-params">
+    <td>?raw=true</td>
+    <td>номер без форматирования, например <i>+79012310856</i></td>
+    <td><button class="btn" data-url="/API/V1/GET/random-phone?raw=true">Выполнить</button></td>
+</tr>
+</tbody>
+</table>
+
+<div class="result-block">
+<span>Результат запроса:</span>
+<div class="result" id="result-random-phone">пока пусто ..</div>
+</div>
+
+
+<!-- ================= random-email ================= -->
+
+<h2>GET /API/V1/GET/random-email</h2>
+<p class="desc">возвращает случайный email</p>
+
+<table>
+<thead>
+<tr><th style="width:45%">Параметры</th><th>Описание</th><th style="width:120px">Результат</th></tr>
+</thead>
+<tbody>
+<tr class="row-params">
+    <td>(без параметров)</td>
+    <td>случайный email</td>
+    <td><button class="btn" data-url="/API/V1/GET/random-email">Выполнить</button></td>
+</tr>
+</tbody>
+</table>
+
+<div class="result-block">
+<span>Результат запроса:</span>
+<div class="result" id="result-random-email">пока пусто ..</div>
+</div>
+
+
+<!-- ================= footnote ================= -->
+
+<div class="footnote">
+    <p><strong>Технические детали:</strong></p>
+    <ul>
+        <li>Формат ответа: <code>text/plain; charset=utf-8</code> — тело ответа содержит только значение, без JSON и кавычек.</li>
+        <li>Метод запроса: <code>GET</code>.</li>
+        <li>Авторизация не требуется.</li>
+        <li>Для параметров типа boolean значение <code>true</code> (без учёта регистра) включает опцию; любое другое значение или отсутствие параметра — выключает.</li>
+    </ul>
+</div>
+
+<script>
+(function () {
+    'use strict';
+
+    document.querySelectorAll('button.btn[data-url]').forEach(function (button) {
+        button.addEventListener('click', function () {
+            var url = button.getAttribute('data-url');
+            var resultBox = document.getElementById('result-' + url.split('/').pop().split('?')[0]);
+
+            if (!resultBox) return;
+
+            resultBox.classList.remove('ok', 'error');
+            resultBox.textContent = 'Загрузка…';
+
+            fetch(url, { method: 'GET' })
+                .then(function (response) {
+                    if (!response.ok) {
+                        throw new Error('HTTP ' + response.status);
+                    }
+                    return response.text();
+                })
+                .then(function (text) {
+                    resultBox.textContent = text;
+                    resultBox.classList.add('ok');
+                })
+                .catch(function (error) {
+                    resultBox.textContent = 'Ошибка запроса: ' + error.message;
+                    resultBox.classList.add('error');
+                });
+        });
+    });
+})();
+</script>
+
+</body>
+</html>
