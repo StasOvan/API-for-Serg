@@ -245,23 +245,23 @@ function getBoolParam(string $key, bool $default): bool
 ### cURL
 
 ```bash
-curl https://example.com/API/V1/GET/random-name
-curl "https://example.com/API/V1/GET/random-city?transliter=true"
-curl "https://example.com/API/V1/GET/random-phone?raw=true"
-curl https://example.com/API/V1/GET/random-email
+curl https://myqu.ru/API/V1/GET/random-name
+curl https://myqu.ru/API/V1/GET/random-city?transliter=true
+curl https://myqu.ru/API/V1/GET/random-phone?raw=true
+curl https://myqu.ru/API/V1/GET/random-email
 ```
 
 ### PHP
 
 ```php
-$name  = file_get_contents('https://example.com/API/V1/GET/random-name');
-$phone = file_get_contents('https://example.com/API/V1/GET/random-phone?raw=true');
+$name  = file_get_contents('https://myqu.ru/API/V1/GET/random-name');
+$phone = file_get_contents('https://myqu.ru/API/V1/GET/random-phone?raw=true');
 ```
 
 ### JavaScript
 
 ```js
-const city = await fetch('/API/V1/GET/random-city?transliter=true').then(r => r.text());
+const city = await fetch('https://myqu.ru/API/V1/GET/random-city?transliter=true').then(r => r.text());
 console.log(city);
 ```
 
@@ -270,7 +270,7 @@ console.log(city);
 ```python
 import requests
 
-name = requests.get('https://example.com/API/V1/GET/random-name').text
+name = requests.get('https://myqu.ru/API/V1/GET/random-name').text
 print(name)
 ```
 
