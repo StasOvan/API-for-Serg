@@ -202,7 +202,7 @@ server {
 ---
 
 
-## Класс Transliterate
+## Класс Transliterate (транслитерация в латиницу)
 
 `Transliterate.php` (пространство имен `namespace API\V1`) — статический класс без состояния.
 
