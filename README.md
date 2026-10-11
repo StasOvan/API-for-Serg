@@ -54,10 +54,10 @@ https://myqu.ru/API/V1
 
 ```
 .
-├── index.html                     # демо-страница с документацией и примерами
-├── Transliterate.php              # класс транслитерации (namespace API\V1)
 └── API/
     └── V1/
+        ├── index.html                     # демо-страница с документацией и примерами
+        ├── Transliterate.php              # класс транслитерации (namespace API\V1)
         └── GET/
             ├── random-name/
             │   └── index.php
@@ -67,7 +67,7 @@ https://myqu.ru/API/V1
             │   └── index.php
             └── random-email/
                 ├── index.php
-                └── emails.txt       # база email-адресов (по одному в строке)
+                └── emails.txt             # база email-адресов (по одному в строке)
 ```
 
 > Путь до `Transliterate.php` в эндпоинтах указан как `__DIR__ . '/../../Transliterate.php'`. Если вы измените структуру каталогов — поправьте относительный путь или подключите класс через автозагрузчик.
