@@ -204,7 +204,7 @@ server {
 
 ## Класс Transliterate
 
-`Transliterate.php` (namespace `API\V1`) — статический класс без состояния.
+`Transliterate.php` (пространство имен `namespace API\V1`) — статический класс без состояния.
 
 ```php
 use API\V1\Transliterate;
