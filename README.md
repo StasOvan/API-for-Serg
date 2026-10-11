@@ -40,7 +40,7 @@ https://myqu.ru/API/V1
 |---|---|---|
 | `/API/V1/GET/random-name` | случайное русское имя | `capitalize`, `transliter` |
 | `/API/V1/GET/random-city` | случайный российский город | `capitalize`, `transliter` |
-| `/API/V1/GET/random-phone` | мобильный номер РФ | `raw` |
+| `/API/V1/GET/random-phone` | случайный мобильный РФ | `raw` |
 | `/API/V1/GET/random-email` | случайный email из базы | — |
 
 - Без внешних зависимостей и Composer.
