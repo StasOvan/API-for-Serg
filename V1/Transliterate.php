@@ -1,7 +1,7 @@
 <?php
 
 namespace API\V1;
-
+ 
 // Класс без состояния — можно вызывать статически.
 
 class Transliterate
